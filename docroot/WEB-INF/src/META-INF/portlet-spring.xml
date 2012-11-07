@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.liferay.experts.service.AnswerLocalService" class="com.liferay.experts.service.impl.AnswerLocalServiceImpl" />
+	<bean id="com.liferay.experts.service.AnswerService" class="com.liferay.experts.service.impl.AnswerServiceImpl" />
+	<bean id="com.liferay.experts.service.persistence.AnswerPersistence" class="com.liferay.experts.service.persistence.AnswerPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.experts.service.QuestionLocalService" class="com.liferay.experts.service.impl.QuestionLocalServiceImpl" />
+	<bean id="com.liferay.experts.service.QuestionService" class="com.liferay.experts.service.impl.QuestionServiceImpl" />
+	<bean id="com.liferay.experts.service.persistence.QuestionPersistence" class="com.liferay.experts.service.persistence.QuestionPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.experts.service.QuestionAssignmentLocalService" class="com.liferay.experts.service.impl.QuestionAssignmentLocalServiceImpl" />
+	<bean id="com.liferay.experts.service.QuestionAssignmentService" class="com.liferay.experts.service.impl.QuestionAssignmentServiceImpl" />
+	<bean id="com.liferay.experts.service.persistence.QuestionAssignmentPersistence" class="com.liferay.experts.service.persistence.QuestionAssignmentPersistenceImpl" parent="basePersistence" />
+	<bean id="com.liferay.experts.service.TagAssignmentLocalService" class="com.liferay.experts.service.impl.TagAssignmentLocalServiceImpl" />
+	<bean id="com.liferay.experts.service.TagAssignmentService" class="com.liferay.experts.service.impl.TagAssignmentServiceImpl" />
+	<bean id="com.liferay.experts.service.persistence.TagAssignmentPersistence" class="com.liferay.experts.service.persistence.TagAssignmentPersistenceImpl" parent="basePersistence" />
+</beans>

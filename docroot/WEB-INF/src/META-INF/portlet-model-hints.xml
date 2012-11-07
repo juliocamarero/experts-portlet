@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.experts.model.Answer">
+		<field name="uuid" type="String" />
+		<field name="answerId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="questionId" type="long" />
+		<field name="content" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="data" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+	</model>
+	<model name="com.liferay.experts.model.Question">
+		<field name="uuid" type="String" />
+		<field name="questionId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="title" type="String">
+			<hint name="max-length">140</hint>
+		</field>
+		<field name="content" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="dueDate" type="Date" />
+		<field name="data" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+	</model>
+	<model name="com.liferay.experts.model.QuestionAssignment">
+		<field name="questionAssignmentId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="modifiedDate" type="Date" />
+		<field name="questionId" type="long" />
+		<field name="locked" type="boolean" />
+	</model>
+	<model name="com.liferay.experts.model.TagAssignment">
+		<field name="tagAssignmentId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="assetTagId" type="long" />
+		<field name="assetTagName" type="String" />
+		<field name="locked" type="boolean" />
+	</model>
+</model-hints>

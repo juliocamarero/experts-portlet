@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.liferay.experts.model.impl.AnswerModelImpl">
+		<attributes>
+			<id name="answerId" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="questionId" />
+			<basic name="content" />
+			<basic name="data">
+				<column name="DATA_" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.liferay.experts.model.impl.QuestionModelImpl">
+		<attributes>
+			<id name="questionId" />
+			<basic name="uuid">
+				<column name="UUID_" />
+			</basic>
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="title" />
+			<basic name="content" />
+			<basic name="dueDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="data">
+				<column name="DATA_" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.liferay.experts.model.impl.QuestionAssignmentModelImpl">
+		<attributes>
+			<id name="questionAssignmentId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="questionId" />
+			<basic name="locked" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.liferay.experts.model.impl.TagAssignmentModelImpl">
+		<attributes>
+			<id name="tagAssignmentId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="assetTagId" />
+			<basic name="assetTagName" />
+			<basic name="locked" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.liferay.experts.model.impl.AnswerImpl" name="Answer">
+		<table name="Experts_Answer" />
+		<attributes />
+	</entity>
+	<entity class="com.liferay.experts.model.impl.QuestionImpl" name="Question">
+		<table name="Experts_Question" />
+		<attributes />
+	</entity>
+	<entity class="com.liferay.experts.model.impl.QuestionAssignmentImpl" name="QuestionAssignment">
+		<table name="Experts_QuestionAssignment" />
+		<attributes />
+	</entity>
+	<entity class="com.liferay.experts.model.impl.TagAssignmentImpl" name="TagAssignment">
+		<table name="Experts_TagAssignment" />
+		<attributes />
+	</entity>
+</entity-mappings>

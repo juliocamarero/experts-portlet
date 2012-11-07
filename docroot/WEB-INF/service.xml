@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.liferay.experts">
+	<author>Ryan Park</author>
+	<namespace>Experts</namespace>
+	<entity name="Answer" uuid="true" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="answerId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="questionId" type="long" />
+		<column name="content" type="String" />
+		<column name="data" type="String" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="modifiedDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="QuestionId" return-type="Answer">
+			<finder-column name="questionId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+
+		<!-- References -->
+
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+	<entity name="Question" uuid="true" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="questionId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="title" type="String" />
+		<column name="content" type="String" />
+		<column name="dueDate" type="Date" />
+		<column name="data" type="String" />
+		<column name="status" type="int" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="modifiedDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="UI_S" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="status" />
+		</finder>
+
+		<!-- References -->
+
+		<reference package-path="com.liferay.portal" entity="Group" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetEntry" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+	<entity name="QuestionAssignment" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="questionAssignmentId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="questionId" type="long" />
+		<column name="locked" type="boolean" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="modifiedDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="QuestionId" return-type="Collection">
+			<finder-column name="questionId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="QI_L" return-type="Collection">
+			<finder-column name="questionId" />
+			<finder-column name="locked" />
+		</finder>
+		<finder name="UI_QI" return-type="QuestionAssignment" unique="true">
+			<finder-column name="userId" />
+			<finder-column name="questionId" />
+		</finder>
+	</entity>
+	<entity name="TagAssignment" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="tagAssignmentId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+
+		<!-- Other fields -->
+
+		<column name="assetTagId" type="long" />
+		<column name="assetTagName" type="String" />
+		<column name="locked" type="boolean" />
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="assetTagName" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="AssetTagId" return-type="Collection">
+			<finder-column name="assetTagId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="UI_ATI" return-type="TagAssignment" unique="true">
+			<finder-column name="userId" />
+			<finder-column name="assetTagId" />
+		</finder>
+
+		<!-- References -->
+
+		<reference package-path="com.liferay.portal" entity="Group" />
+		<reference package-path="com.liferay.portlet.asset" entity="AssetTag" />
+	</entity>
+</service-builder>
